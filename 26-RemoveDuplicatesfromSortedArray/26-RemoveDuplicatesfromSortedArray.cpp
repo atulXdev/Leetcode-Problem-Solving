@@ -1,20 +1,16 @@
-// Last updated: 10/04/2026, 14:28:55
+// Last updated: 16/05/2026, 23:45:39
 1class Solution {
 2public:
-3    vector<vector<string>> groupAnagrams(vector<string>& strs) {
-4        unordered_map<string,vector<string>> mp;
+3    int removeDuplicates(vector<int>& nums) {
+4         int k=1;
 5
-6        for(string s:strs){
-7            string temp=s;
-8            sort(temp.begin(),temp.end());
-9
-10            mp[temp].push_back(s);
-11        }
-12        vector<vector<string>> ans;
-13        for(auto it:mp){
-14        ans.push_back(it.second);
-15        }
-16
-17        return ans;
-18    }
-19};
+6     for(int i=1;i<nums.size();i++){
+7        if(nums[i]!=nums[i-1]){
+8            nums[k]=nums[i];
+9            k++;
+10        }
+11     }
+12     return k;
+13        
+14    }
+15};
