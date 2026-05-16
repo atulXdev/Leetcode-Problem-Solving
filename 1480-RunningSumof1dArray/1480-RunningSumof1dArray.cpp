@@ -1,4 +1,4 @@
-// Last updated: 17/05/2026, 00:02:57
+// Last updated: 17/05/2026, 00:09:07
 1class Solution {
 2public:
 3    vector<int> runningSum(vector<int>& nums) {
@@ -12,6 +12,5 @@
 11
 12        return ans;
 13        
-14        
-15    }
-16};
+14    }
+15};
