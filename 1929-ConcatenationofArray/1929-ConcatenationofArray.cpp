@@ -1,15 +1,18 @@
-// Last updated: 16/05/2026, 14:33:01
+// Last updated: 16/05/2026, 14:41:18
 1class Solution {
 2public:
-3    vector<int> shuffle(vector<int>& nums, int n) {
-4        vector<int> ans;
+3    int numIdenticalPairs(vector<int>& nums) {
+4        int count=0;
 5
-6        for(int i=0;i<n;i++){
-7            ans.push_back(nums[i]);
-8            ans.push_back(nums[i+n]);
-9        }
-10
-11        return ans;
-12        
-13    }
-14};
+6        for(int i=0;i<nums.size();i++){
+7            for(int j=i+1;j<nums.size();j++){
+8                if(nums[i]==nums[j]){
+9                    count++;
+10                }
+11            }
+12        }
+13
+14        return count;
+15        
+16    }
+17};
