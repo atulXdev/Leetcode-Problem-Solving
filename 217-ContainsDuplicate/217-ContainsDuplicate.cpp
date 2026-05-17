@@ -1,28 +1,30 @@
-// Last updated: 18/05/2026, 00:19:31
+// Last updated: 18/05/2026, 00:28:49
 1class Solution {
 2public:
-3    void sortColors(vector<int>& nums) {
-4        
+3    int search(vector<int>& nums, int target) {
+4
 5        int low=0;
-6        int mid=0;
-7        int high=nums.size()-1;
-8
-9        while(mid<=high){
-10
-11            if(nums[mid]==0){
-12                swap(nums[low],nums[mid]);
-13                low++;
-14                mid++;
-15            }
-16
-17            else if(nums[mid]==1){
-18                mid++;
-19            }
-20
-21            else{
-22                swap(nums[high],nums[mid]);
-23                high--;
-24            }
-25        }
-26    }
-27};
+6        int high=nums.size()-1;
+7
+8        while(low<=high){
+9            int mid=(low+high)/2;
+10            if(nums[mid]==target){
+11                return mid;
+12            }
+13
+14            if(nums[mid]>target){
+15                high=mid-1;
+16            }
+17
+18            else{
+19
+20                low=mid+1;
+21
+22            }
+23        }
+24
+25        return -1;
+26
+27        
+28    }
+29};
