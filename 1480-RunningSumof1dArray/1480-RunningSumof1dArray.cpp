@@ -1,17 +1,14 @@
-// Last updated: 20/05/2026, 17:23:07
+// Last updated: 20/05/2026, 17:30:18
 1class Solution {
 2public:
 3    vector<int> runningSum(vector<int>& nums) {
-4        int n=nums.size();
-5        vector<int> ans(n,0);
-6        ans[0]=nums[0];
-7
-8        for(int i=1;i<n;i++){
-9       ans[i]=nums[i]+ans[i-1];
-10
-11        }
-12
-13        return ans;
-14        
-15    }
-16};
+4
+5        for(int i=1;i<nums.size();i++){
+6
+7            nums[i]+=nums[i-1];
+8        }
+9
+10        return nums;
+11        
+12    }
+13};
