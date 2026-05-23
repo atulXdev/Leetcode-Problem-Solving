@@ -1,4 +1,4 @@
-// Last updated: 24/05/2026, 00:36:00
+// Last updated: 24/05/2026, 00:36:47
 1class Solution {
 2public:
 3 bool bs(vector<int>& arr,int aim){
