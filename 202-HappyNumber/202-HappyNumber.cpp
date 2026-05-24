@@ -1,25 +1,30 @@
-// Last updated: 15/05/2026, 20:12:26
+// Last updated: 24/05/2026, 22:49:18
 1class Solution {
 2public:
-3
-4    bool isHappy(int n) {
+3    int sumsq(int x) {
+4        int sum = 0;
 5
-6        unordered_set<int> st;
-7         while(n!=1 && !st.count(n)){
-8            st.insert(n);
-9            int sum=0;
-10            while(n>0){
-11                int last=n%10;
-12                sum+=last*last;
-13                n=n/10;
-14            }
-15            n=sum;
-16
-17           
-18         }
-19
-20          return n==1;
-21       
-22        
-23    }
-24};
+6        while (x > 0) {
+7            int last = x % 10;
+8            sum += last * last;
+9            x /= 10;
+10        }
+11
+12        return sum;
+13    }
+14
+15    bool isHappy(int n) {
+16        unordered_set<int> st;
+17
+18        while (n != 1) {
+19            if (st.count(n)) {
+20                return false;
+21            }
+22
+23            st.insert(n);
+24            n = sumsq(n);
+25        }
+26
+27        return true;
+28    }
+29};
