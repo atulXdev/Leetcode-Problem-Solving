@@ -1,4 +1,4 @@
-// Last updated: 26/05/2026, 23:50:53
+// Last updated: 27/05/2026, 00:03:42
 1/**
 2 * Definition for a binary tree node.
 3 * struct TreeNode {
@@ -29,13 +29,13 @@
 28            for(int i=0;i<size;i++){
 29                TreeNode* node=q.front();
 30                q.pop();
-31                level.push_back(node->val);
-32
-33                if(node->left!=NULL) q.push(node->left);
-34                if(node->right!=NULL) q.push(node->right);
-35            }
-36            ans.push_back(level);
-37
+31
+32                level.push_back(node->val);
+33
+34                if(node->left!=NULL) q.push(node->left);
+35                if(node->right!=NULL) q.push(node->right);
+36            }
+37            ans.push_back(level);
 38        }
 39
 40        return ans;
