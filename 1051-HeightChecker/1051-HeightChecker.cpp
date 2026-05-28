@@ -1,19 +1,19 @@
-// Last updated: 28/05/2026, 17:26:04
+// Last updated: 28/05/2026, 17:35:30
 1class Solution {
 2public:
-3    int heightChecker(vector<int>& heights) {
+3    int countPairs(vector<int>& nums, int k) {
 4
-5        vector<int> normal(heights.begin(),heights.end());
-6        
-7        sort(heights.begin(),heights.end());
-8        int count=0;
-9
-10        for(int i=0;i<heights.size();i++){
-11            if(normal[i]!=heights[i]){
-12                count++;
-13            }
-14        }
+5        int  count=0;
+6        for(int i=0;i<nums.size();i++){
+7            for(int j=i+1;j<nums.size();j++){
+8                if(nums[i]==nums[j] && (i*j)%k==0){
+9                    count++;
+10                }
+11            }
+12        }
+13
+14        return count;
 15
-16        return count;
+16        
 17    }
 18};
