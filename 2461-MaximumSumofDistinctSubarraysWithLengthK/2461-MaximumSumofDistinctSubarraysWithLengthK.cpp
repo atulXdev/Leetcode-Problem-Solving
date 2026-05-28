@@ -1,19 +1,19 @@
-// Last updated: 28/05/2026, 23:09:57
+// Last updated: 28/05/2026, 23:59:08
 1class Solution {
 2public:
 3    long long maximumSubarraySum(vector<int>& nums, int k) {
-4        unordered_map<int,int> mp;
-5        int left=0;
-6        long long ans=0;
-7        long long sum=0;
+4        int left=0;
+5        unordered_map<int,int> mp;
+6        long long sum=0;
+7        long long ans=0;
 8
 9        for(int right=0;right<nums.size();right++){
-10           sum +=nums[right];
+10            sum+=nums[right];
 11            mp[nums[right]]++;
 12
 13            if(right-left+1>k){
-14                mp[nums[left]]--;
-15                sum-=nums[left];
+14                sum-=nums[left];
+15                mp[nums[left]]--;
 16                if(mp[nums[left]]==0) mp.erase(nums[left]);
 17                left++;
 18            }
