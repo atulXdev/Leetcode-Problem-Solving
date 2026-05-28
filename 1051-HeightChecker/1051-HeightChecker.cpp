@@ -1,19 +1,20 @@
-// Last updated: 28/05/2026, 17:35:30
+// Last updated: 28/05/2026, 17:45:32
 1class Solution {
 2public:
-3    int countPairs(vector<int>& nums, int k) {
-4
-5        int  count=0;
-6        for(int i=0;i<nums.size();i++){
-7            for(int j=i+1;j<nums.size();j++){
-8                if(nums[i]==nums[j] && (i*j)%k==0){
-9                    count++;
-10                }
-11            }
-12        }
-13
-14        return count;
+3    bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+4        string ans1="";
+5        string ans2="";
+6
+7       for(int i=0;i<word1.size();i++){
+8        ans1+=word1[i];
+9       }
+10
+11       for(int i=0;i<word2.size();i++){
+12        ans2+=word2[i];
+13       }
+14       
 15
-16        
-17    }
-18};
+16        return ans1==ans2;
+17        
+18    }
+19};
