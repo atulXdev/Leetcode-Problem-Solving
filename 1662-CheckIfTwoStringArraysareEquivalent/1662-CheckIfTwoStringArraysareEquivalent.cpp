@@ -1,4 +1,4 @@
-// Last updated: 29/05/2026, 00:32:09
+// Last updated: 31/05/2026, 22:10:30
 1class Solution {
 2public:
 3    bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
