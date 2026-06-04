@@ -1,17 +1,28 @@
-// Last updated: 04/06/2026, 17:24:40
+// Last updated: 04/06/2026, 17:46:31
 1class Solution {
 2public:
 3    vector<int> sortedSquares(vector<int>& nums) {
-4        multiset<int> ms;
-5        for(int i=0;i<nums.size();i++){
-6            int num=abs(nums[i]*nums[i]);
-7            ms.insert(num);
-8        }
-9
-10        vector<int> ans(ms.begin(),ms.end());
-11
-12        return ans;
-13
-14        
-15    }
-16};
+4        int left=0;
+5        int right=nums.size()-1;
+6        int n = nums.size();
+7
+8        vector<int> ans(n);
+9        int k=nums.size()-1;
+10        while(left<=right){
+11            if(abs(nums[left])>abs(nums[right])){
+12                ans[k]=nums[left]*nums[left];
+13                left++;
+14            }
+15            else{
+16                ans[k]=nums[right]*nums[right];
+17                right--;
+18            }
+19            k--;
+20
+21
+22        }
+23
+24        return ans;
+25        
+26    }
+27};
