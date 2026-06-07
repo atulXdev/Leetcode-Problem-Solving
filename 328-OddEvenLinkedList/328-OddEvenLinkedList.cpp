@@ -1,4 +1,4 @@
-// Last updated: 07/06/2026, 12:09:58
+// Last updated: 07/06/2026, 12:35:52
 1/**
 2 * Definition for singly-linked list.
 3 * struct ListNode {
@@ -12,42 +12,26 @@
 11class Solution {
 12public:
 13    ListNode* oddEvenList(ListNode* head) {
-14        //edge case if its a null or single element
-15        if(head==NULL || head->next==NULL){
-16            return head;
-17        }
-18
-19        vector<int> arr;
-20        //phle add numbers ke node honge then even no ke
-21        ListNode* temp=head;
-22
-23        //ADDING ODD INDICES DATA in arr
-24        while(temp!=NULL && temp->next!=NULL){
-25            arr.push_back(temp->val);
-26            temp=temp->next->next;
-27        }
-28        if(temp){
-29            arr.push_back(temp->val);
-30        }
-31
-32        //adding even indices data in arr
-33        temp=head->next;
-34        while(temp!=NULL && temp->next!=NULL){
-35            arr.push_back(temp->val);
-36            temp=temp->next->next;
-37        }
-38         if(temp){
-39            arr.push_back(temp->val);
-40        }
-41        //replacing all the data of LL by arr
-42        int i=0;
-43        temp=head;
-44        while(temp!=NULL){
-45            temp->val=arr[i++];
-46            temp=temp->next;
-47        }
-48
-49        return head;
-50        
-51    }
-52};
+14          if(head == NULL || head->next == NULL)
+15            return head;
+16        ListNode* even=head->next;
+17        ListNode* odd=head;
+18        ListNode* evenHead=head->next;
+19
+20        //Even node will always at last after completing the loop and odd node will
+21        //be just before it
+22        //after one itertion even will always just ine ahead of odd
+23
+24        //we have only check for even node
+25        while(even!=NULL && even->next!=NULL){
+26            odd->next=odd->next->next;
+27            even->next=even->next->next;
+28
+29            odd=odd->next;
+30            even=even->next;
+31        }
+32        odd->next=evenHead;
+33        return head;
+34        
+35    }
+36};
