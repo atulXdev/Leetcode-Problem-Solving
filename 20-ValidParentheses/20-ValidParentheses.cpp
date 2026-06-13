@@ -1,18 +1,27 @@
-// Last updated: 25/05/2026, 10:20:45
+// Last updated: 13/06/2026, 22:20:14
 1class Solution {
 2public:
-3    vector<int> twoSum(vector<int>& nums, int target) {
-4        unordered_map<int,int> mp;
+3    bool isValid(string s) {
+4        stack<char> st;
 5
-6        for(int i=0;i<nums.size();i++){
-7            int need=target-nums[i];
-8
-9            if(mp.count(need)){
-10                return {mp[need],i};
-11            }
-12
-13            mp[nums[i]]=i;
-14        }
-15        return {};
-16    }
-17};
+6        for(int i=0;i<s.size();i++){
+7            if(s[i]=='(' || s[i]=='[' || s[i]=='{'){
+8                st.push(s[i]);
+9            }
+10
+11            else {
+12               if(st.empty()) return false;
+13               if(
+14                (s[i]==')' && st.top() !='(')||
+15                (s[i]=='}' && st.top() !='{')||
+16                (s[i]==']' && st.top() !='[')
+17               )
+18                return false;
+19                st.pop();
+20            }
+21        }
+22
+23        return st.empty();
+24        
+25    }
+26};
