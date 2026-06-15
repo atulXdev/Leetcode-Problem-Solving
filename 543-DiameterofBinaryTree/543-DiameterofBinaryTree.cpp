@@ -1,23 +1,33 @@
-// Last updated: 15/06/2026, 21:45:01
-1class Solution {
-2public:
-3    int height(TreeNode* root) {
-4        if (root == NULL) return 0;
-5
-6        return 1 + max(height(root->left), height(root->right));
-7    }
-8
-9    int diameterOfBinaryTree(TreeNode* root) {
-10        if (root == NULL) return 0;
-11
-12        int leftHeight = height(root->left);
-13        int rightHeight = height(root->right);
-14
-15        int currDiameter = leftHeight + rightHeight;
+// Last updated: 15/06/2026, 22:03:40
+1/**
+2 * Definition for a binary tree node.
+3 * struct TreeNode {
+4 *     int val;
+5 *     TreeNode *left;
+6 *     TreeNode *right;
+7 *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+8 *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+9 *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+10 * };
+11 */
+12class Solution {
+13public:
+14int height(TreeNode* root,int& diameter){
+15    if(root==NULL) return 0;
 16
-17        int leftDiameter = diameterOfBinaryTree(root->left);
-18        int rightDiameter = diameterOfBinaryTree(root->right);
+17    int lh=height(root->left,diameter);
+18    int rh=height(root->right,diameter);
 19
-20        return max(currDiameter, max(leftDiameter, rightDiameter));
-21    }
-22};
+20    diameter=max(diameter,lh+rh);
+21
+22    return 1+ max(lh,rh);
+23}
+24//at each time we are calculating the max diameter
+25    int diameterOfBinaryTree(TreeNode* root) {
+26        int diameter=0;
+27        height(root,diameter);
+28
+29        return diameter;
+30        
+31    }
+32};
